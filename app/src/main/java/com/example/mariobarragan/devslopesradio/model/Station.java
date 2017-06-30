@@ -21,7 +21,7 @@ public class Station {
     }
 
     public String getImageUri() {
-        return imageUri;
+        return DRAWABLE + imageUri;
     }
 
 }
