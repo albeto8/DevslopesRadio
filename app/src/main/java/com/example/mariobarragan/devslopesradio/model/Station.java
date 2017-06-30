@@ -5,4 +5,23 @@ package com.example.mariobarragan.devslopesradio.model;
  */
 
 public class Station {
+
+    final String DRAWABLE = "drawable/";
+
+    private String stationTitle;
+    private String imageUri;
+
+    public Station(String stationTitle, String imageUri) {
+        this.stationTitle = stationTitle;
+        this.imageUri = imageUri;
+    }
+
+    public String getStationTitle() {
+        return stationTitle;
+    }
+
+    public String getImageUri() {
+        return imageUri;
+    }
+
 }

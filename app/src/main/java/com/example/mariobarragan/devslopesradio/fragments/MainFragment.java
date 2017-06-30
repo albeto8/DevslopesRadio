@@ -3,6 +3,7 @@ package com.example.mariobarragan.devslopesradio.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +61,25 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_main, container, false);
+
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+
+        StationsFragment stationsFragment1;
+        StationsFragment stationsFragment2;
+        StationsFragment stationsFragment3;
+
+        stationsFragment1 = StationsFragment.newInstance(StationsFragment.STATION_TYPE_FEATURED);
+        fm.beginTransaction().add(R.id.container_top_row, stationsFragment1).commit();
+
+        stationsFragment2 = StationsFragment.newInstance(StationsFragment.STATION_TYPE_RECENT);
+        fm.beginTransaction().add(R.id.container_middle_row, stationsFragment2).commit();
+
+        stationsFragment3 = StationsFragment.newInstance(StationsFragment.STATION_TYPE_PARTY);
+        fm.beginTransaction().add(R.id.container_bottom_row, stationsFragment3).commit();
+
+        return v;
     }
 
 }
